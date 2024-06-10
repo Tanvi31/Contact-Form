@@ -1,0 +1,231 @@
+/*- Green 200 (lighter): hsl(148, 38%, 91%)
+- Green 600 (medium): hsl(169, 82%, 27%)
+- Red: hsl(0, 66%, 54%)
+
+### Neutral
+
+- White: hsl(0, 0%, 100%)
+- Grey 500 (medium): hsl(186, 15%, 59%)
+- Grey 900 (darker): hsl(187, 24%, 22%) */
+
+* {
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: hsl(148, 38%, 91%);
+    min-height: 100vh;
+    font-family: 'Karla', sans-serif;
+    display: grid;
+    place-content: center;
+}
+
+label {
+    color: hsl(187, 24%, 22%);
+}
+
+input[type='text'],
+input[type='email'],
+textarea {
+    width: 100%;
+    padding: .5rem;
+    margin-top: .5rem;
+    font-family: inherit;
+    border: 1px solid hsl(186, 15%, 59%);
+    border-radius: .35rem;
+}
+
+input:focus,
+textarea:focus {
+    outline: 1px solid hsl(169, 82%, 27%);
+    border: 1px solid hsl(169, 82%, 27%);
+}
+
+input[type='text'].form-error,
+input[type='email'].form-error {
+    border: 1px solid hsl(0, 66%, 54%);
+}
+
+.required-input {
+    color: hsl(169, 82%, 27%);
+}
+
+.form-alert {
+    display: none;
+    color: hsl(0, 66%, 54%);
+    margin-top: .5rem;
+}
+
+.form-alert.form-error {
+    display: block;
+}
+
+.contact-form {
+    background-color: white;
+    margin: 1rem;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.contact-form h1 {
+    color: hsl(187, 24%, 22%);
+    margin-bottom: 1.25rem;
+}
+
+.contact-form .form-item {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form .form-item:nth-child(1) {
+    display: flex;
+    gap: 1rem;
+}
+
+.contact-form .form-item:nth-child(3) .radio-inputs {
+    margin-top: .5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.contact-form .form-item:nth-child(3) .radio-inputs .radio-option {
+    cursor: pointer;
+    width: 100%;
+    padding: .5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    outline: 1px solid hsl(186, 15%, 59%);
+    border-radius: .35rem;
+}
+
+.contact-form .form-item:nth-child(3) .radio-inputs .radio-option.active {
+    background-color: hsl(148, 38%, 91%);
+}
+
+
+.contact-form .form-item:nth-child(3) input[type='radio'] {
+    appearance: none;
+    width: .5rem;
+    height: .5rem;
+    outline: 2px solid hsl(169, 82%, 27%);
+    outline-offset: 3px;
+    border-radius: 50%;
+}
+
+.contact-form .form-item:nth-child(3) input[type='radio']:checked {
+    background-color: hsl(169, 82%, 27%);
+}
+
+.contact-form .form-item:nth-child(3) .radio-inputs .radio-option label {
+    cursor: pointer;
+    width: 100%;
+}
+
+.contact-form .form-item:nth-child(5) {
+    margin-bottom: 2rem;
+}
+
+.contact-form .form-item:nth-child(5) div {
+    display: flex;
+    gap: 1rem;
+}
+
+.contact-form .form-item:nth-child(5) input[type='checkbox'] {
+    cursor: pointer;
+    accent-color: hsl(169, 82%, 27%);
+}
+
+.contact-form .form-item:nth-child(5) label {
+    cursor: pointer;
+}
+
+.contact-form .submit-btn {
+    cursor: pointer;
+    background-color: hsl(169, 82%, 27%);
+    color: white;
+    width: 100%;
+    padding: .75rem;
+    border: 0;
+    outline: 0;
+    border-radius: .35rem;
+    font-size: medium;
+}
+
+.contact-form .submit-btn:hover {
+    background-color: hsl(187, 24%, 22%);
+}
+
+.success-message {
+    background-color: hsl(187, 24%, 22%);
+    color: hsl(148, 38%, 91%);
+    width: max-content;
+    padding: 1rem;
+    pointer-events: none;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: .35rem;
+    opacity: 0;
+}
+
+.success-message.active {
+    display: block;
+    pointer-events: all;
+
+    animation-name: fadeOut;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+    0%, 25%, 50%, 75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.success-message .message-header {
+    color: white;
+    margin-bottom: .5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+@media (max-width: 300px) {
+    .contact-form .form-item:nth-child(1) {
+        flex-direction: column;
+    }
+
+    .contact-form .form-item:nth-child(3) .radio-inputs {
+        flex-direction: column;
+    }
+
+    textarea {
+        height: 200px;
+    }
+
+    .success-message {
+        width: 35ch;
+        top: 5%;
+    }
+    
+}
+
+.attribution {
+    color: hsl(187, 24%, 22%);
+    font-size: 12px; 
+    text-align: center; 
+    margin-top: 2rem;
+}
+
+.attribution a { 
+    color: hsl(187, 24%, 22%)
+}
